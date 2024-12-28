@@ -14,9 +14,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/services', require('./routes/services'));
-
 // Routes
+app.use('/task', require('./routes/tasks'));
+
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
