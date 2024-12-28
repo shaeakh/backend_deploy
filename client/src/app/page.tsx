@@ -29,7 +29,7 @@ export default function Home() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/task");
+      const response = await axios.get("https://backend-deploy-vu5h.vercel.app/task");
       setTasks(response.data);
       setLoading(false);
     } catch (error) {
@@ -43,9 +43,9 @@ export default function Home() {
     setIsSubmitting(true);
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/task/${editingId}`, formData);
+        await axios.put(`https://backend-deploy-vu5h.vercel.app/task/${editingId}`, formData);
       } else {
-        await axios.post("http://localhost:5000/task", formData);
+        await axios.post("https://backend-deploy-vu5h.vercel.app/task", formData);
       }
       fetchTasks();
       setFormData({ text: "", day: "", reminder: false });
@@ -58,7 +58,7 @@ export default function Home() {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:5000/task/${id}`);
+      await axios.delete(`https://backend-deploy-vu5h.vercel.app/task/${id}`);
       fetchTasks();
     } catch (error) {
       console.error("Error deleting task:", error);
